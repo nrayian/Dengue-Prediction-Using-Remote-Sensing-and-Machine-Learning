@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dengue Case Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Dengue Case Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="year">Year:</label>
+            <input type="number" step="0.01" name="year" required>
+            
+            <label for="month">Month:</label>
+            <input type="text" name="month" required>
+            
+            <label for="week">Week:</label>
+            <input type="number" step="0.01" name="week" required><br>
+            
+            <label for="rainfall">Rainfall:</label>
+            <input type="number" step="0.01" name="rainfall" required>
+            
+            <label for="temperature">Temperature:</label>
+            <input type="number" step="0.01" name="temperature" required>
+            
+            <label for="humidity">Humidity:</label>
+            <input type="number" step="0.01" name="humidity" required><br>
+            
+            <label for="wind">Wind:</label>
+            <input type="number" step="0.01" name="wind" required>
+            
+            <label for="solarradiation">Solar Radiation:</label>
+            <input type="number" step="0.01" name="solarradiation" required>
+
+            <label for="dew">Dew:</label>
+            <input type="number" step="0.01" name="dew" required><br>
+            
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+            <h3>Predicted Dengue Cases: {{ prediction }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
